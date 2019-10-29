@@ -11,8 +11,8 @@ import MapView, { Marker, AnimatedRegion } from 'react-native-maps';
 const screen = Dimensions.get('window');
 
 const ASPECT_RATIO = screen.width / screen.height;
-const LATITUDE_DELTA = 0.0922;
-const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
+const LATITUDE_DELTA = 0.000894375;
+const LONGITUDE_DELTA = 0.000894375;
 
 interface Props { }
 interface State {
@@ -26,10 +26,10 @@ export default class App extends Component<Props, State> {
       <View style={styles.container}>
         <MapView style={styles.map}
           initialRegion={{
-            latitude: 37.78825,
-            longitude: -122.4324,
-            latitudeDelta: 0.0,
-            longitudeDelta: 0.0,
+            latitude: 51.22172,
+            longitude: 6.77616,
+            latitudeDelta: LATITUDE_DELTA,
+            longitudeDelta: LONGITUDE_DELTA,
           }}
             showsUserLocation={true}
             showsCompass={true}
@@ -38,8 +38,8 @@ export default class App extends Component<Props, State> {
         >
           <Marker
             coordinate={{
-              latitude: 37.78825,
-              longitude: -122.4324
+              latitude: 51.22172,
+              longitude: 6.77616
             }}
             title={"Здесь я"}
             description={"Но где карта-то, блин!?"}
@@ -52,13 +52,20 @@ export default class App extends Component<Props, State> {
 
 const styles = StyleSheet.create({
   container: {
-    ...StyleSheet.absoluteFillObject,
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
     justifyContent: 'flex-end',
     alignItems: 'center',
   },
   map: {
-    ...StyleSheet.absoluteFillObject,
-    display: 'flex'
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
   },
   bubble: {
     flex: 1,
